@@ -1,3 +1,4 @@
+from motor.core import AgnosticClient
 from motor.motor_asyncio import AsyncIOMotorClient
 
 from store.core.config import settings
@@ -5,9 +6,9 @@ from store.core.config import settings
 
 class MongoClient:
     def __init__(self) -> None:
-        self.client: AsyncIOMotorClient = AsyncIOMotorClient(settings.DATABASE_URL)
+        self.client: AgnosticClient = AsyncIOMotorClient(settings.DATABASE_URL)
 
-    def get(self) -> AsyncIOMotorClient:
+    def get(self) -> AgnosticClient:
         return self.client
 
 
